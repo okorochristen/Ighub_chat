@@ -48,6 +48,7 @@ Route::post('group/create','GroupController@store');
 Route::get('group/groups','GroupController@group');
 Route::get('group/groupchat/{id}','GroupController@groupchat')->name('groupchat');
 Route::post('group/groupchat','GroupchatController@store')->name('chat');
+Route::get('group/groupchat','GroupchatController@show');
 //------------------------------------------------------
 // for group chat system ends here
 //-----------------------------------------------------

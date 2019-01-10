@@ -10,7 +10,7 @@ class Groupc extends Model
     protected $table='groupcs'; 
     protected $fillable =['name','duration','manager','participant','user_id'];
 
-    public function groupchat()
+    public function groupchats()
     {
         return $this->belongsTo('App\Groupchat');
     }

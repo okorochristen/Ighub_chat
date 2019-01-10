@@ -5,7 +5,7 @@ use App\General;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-
+use App\Groupchat;
 class User extends Authenticatable
 {
     use Notifiable;
@@ -22,7 +22,9 @@ class User extends Authenticatable
      public function general(){
     return $this->hasMany('App\General');
     }
-
+     public function groupchat(){
+    return $this->hasMany('App\Groupchat');
+    }
     /**
      * The attributes that should be hidden for arrays.
      *

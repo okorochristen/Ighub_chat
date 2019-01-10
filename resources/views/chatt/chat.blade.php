@@ -5,38 +5,40 @@
 
 
 
+<div class="container col-md-8">
+        <div class="panel panel-default">
 
- <div class="panel panel-default">
-    
-        @if(count($chats)>0)
-        @foreach($chats as $chat)
-         <div class="panel-body">
-            {{$chat->content}}
-         </div>
-         <div class="paniel-heading">
-            
-         </div>
-     @endforeach
-     @endif
+            @if(count($chats)>0)
+            @foreach($chats as $chat)
+             <div class="panel-body">
+                 <strong>{{$chat->user->name}}</strong><br>
+                {{$chat->content}}
+             </div>
+             <div class="paniel-heading">
 
-    </div>
+             </div>
+         @endforeach
+         @endif
 
-<form method="post" action="{{ route('Addchat') }}" class="col-md-9">
-                @csrf
+        </div>
 
-            <div class="form-group">
-    {{-- for success starts here --}}
-              @if(session('status'))
-                <div class="alert alert-success">{{
-                    session('status')
-                }}</div>
-              @endif
-    {{-- for success ends here --}}
+        <form method="post" action="{{ route('Addchat') }}" class="col-md-9">
+                    @csrf
 
-        
-            <textarea id="my-input" class="form-control" rows="3" col="60" placeholder="Message" name="content"></textarea>
+                <div class="form-group">
+        {{-- for success starts here --}}
+                  @if(session('status'))
+                    <div class="alert alert-success">{{
+                        session('status')
+                    }}</div>
+                  @endif
+        {{-- for success ends here --}}
 
-            <input class="btn btn-primary" type="submit" value="Chat">
-                </div>
-</form>            
+
+                <textarea id="my-input" class="form-control" rows="3" col="60" placeholder="Message" name="content"></textarea>
+
+                <input class="btn btn-primary" type="submit" value="Chat">
+                    </div>
+        </form>  
+ </div>   
 @endsection

@@ -5,6 +5,8 @@ use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\General;
+use Auth as any;
+
 
 class GeneralController extends Controller
 {
@@ -23,7 +25,7 @@ class GeneralController extends Controller
     
         $chats= new General([
             'content'=>$request->content,
-            'user_id'=>Auth::user()->id,
+            'user_id'=>any::user()->id,
         ]);
         $chats->save();
         return redirect()->back()->with('status','successful');
